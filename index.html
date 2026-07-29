@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Pain & Injury Relief Near You | Vitalead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C2B33;
+    --navy-light: #2E4350;
+    --cream: #F7F4EE;
+    --clay: #C76B4A;
+    --clay-light: #E2906F;
+    --charcoal: #2B2B2B;
+    --line: rgba(28,43,51,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+  .logo span { color: var(--clay); }
+  .nav-area {
+    font-size: 13px;
+    color: var(--navy-light);
+    font-weight: 500;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 72px 0 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay-light);
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--clay-light);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.08;
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--clay-light);
+  }
+
+  .hero p.lede {
+    font-size: 18px;
+    color: rgba(247,244,238,0.78);
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding-bottom: 64px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .trust-item .num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--cream);
+  }
+  .trust-item .label {
+    font-size: 13px;
+    color: rgba(247,244,238,0.6);
+  }
+
+  /* arc motif */
+  .arc-field {
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* ---------- FORM CARD ---------- */
+  .form-card {
+    background: var(--cream);
+    color: var(--charcoal);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.45);
+    position: relative;
+    z-index: 2;
+    margin-bottom: -40px;
+  }
+  .form-card h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .form-card .sub {
+    font-size: 14px;
+    color: #6b6b6b;
+    margin-bottom: 22px;
+  }
+
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--navy-light);
+    margin-bottom: 6px;
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: #fff;
+    transition: border-color 0.15s ease;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--clay);
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--clay);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .submit-btn:hover { background: #B45A3B; }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .form-foot {
+    font-size: 12px;
+    color: #8a8a8a;
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  /* thank you state */
+  .thanks {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .thanks .check {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--clay-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 24px;
+  }
+  .thanks h3 { color: var(--navy); margin-bottom: 8px; }
+  .thanks p { color: #6b6b6b; font-size: 14.5px; }
+
+  /* ---------- SPACER FOR OVERLAP ---------- */
+  .hero-spacer { height: 40px; background: var(--cream); }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .section {
+    padding: 96px 0;
+  }
+  .section-head {
+    max-width: 560px;
+    margin-bottom: 56px;
+  }
+  .section-head .kicker {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(26px, 3.4vw, 36px);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .step {
+    border-top: 3px solid var(--clay);
+    padding-top: 20px;
+  }
+  .step .step-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--clay);
+    margin-bottom: 10px;
+  }
+  .step h3 {
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .step p { font-size: 14.5px; color: #555; }
+
+  /* ---------- CONDITIONS ---------- */
+  .conditions-section {
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pill {
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--cream);
+  }
+
+  /* ---------- FOOTER CTA ---------- */
+  .footer-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 72px 0;
+    text-align: center;
+  }
+  .footer-cta h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 16px;
+  }
+  .footer-cta p {
+    color: rgba(247,244,238,0.7);
+    margin-bottom: 28px;
+  }
+  .footer-cta .submit-btn {
+    width: auto;
+    padding: 15px 36px;
+    display: inline-block;
+  }
+
+  footer {
+    padding: 28px 0;
+    text-align: center;
+    font-size: 12.5px;
+    color: #9a9a9a;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .form-card { margin-bottom: 0; }
+    .hero-spacer { height: 0; }
+    .arc-field { display: none; }
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .trust-row { padding-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Vita<span>lead</span></div>
+    <div class="nav-area">Serving Vancouver &amp; Burnaby</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <svg class="arc-field" viewBox="0 0 600 700" preserveAspectRatio="none">
+    <path d="M 600 0 Q 350 200 480 350 Q 600 480 380 700" stroke="#C76B4A" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M 600 60 Q 400 230 510 380 Q 600 500 430 700" stroke="#F7F4EE" stroke-width="1" fill="none" opacity="0.25"/>
+    <path d="M 600 -40 Q 320 170 460 330 Q 600 460 340 700" stroke="#F7F4EE" stroke-width="1" fill="none" opacity="0.15"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Pain &amp; Sports Injury Care</div>
+        <h1>Move better.<br>Recover <em>faster.</em></h1>
+        <p class="lede">Connect with a chiropractor or physiotherapist near you in Vancouver or Burnaby — whether you're managing chronic pain or getting back to training after an injury.</p>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="num">24–48h</span>
+            <span class="label">to be contacted</span>
+          </div>
+          <div class="trust-item">
+            <span class="num">Local</span>
+            <span class="label">Vancouver &amp; Burnaby clinics</span>
+          </div>
+          <div class="trust-item">
+            <span class="num">No cost</span>
+            <span class="label">to submit your info</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div id="form-view">
+          <h3>Request an appointment</h3>
+          <p class="sub">Tell us what's going on — a clinic near you will follow up directly.</p>
+          <form id="leadForm">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="field">
+              <label for="area">Closest area</label>
+              <select id="area" required>
+                <option value="">Select one</option>
+                <option>Vancouver</option>
+                <option>Burnaby</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="issue">What are you dealing with?</label>
+              <select id="issue" required>
+                <option value="">Select one</option>
+                <option>Sports injury</option>
+                <option>Back or neck pain</option>
+                <option>Joint or muscle pain</option>
+                <option>Post-activity soreness / recovery</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Get Connected With a Clinic</button>
+          </form>
+          <div class="form-foot">Your information is only shared with the clinic that contacts you.</div>
+        </div>
+
+        <div class="thanks" id="thanks-view">
+          <div class="check">&#10003;</div>
+          <h3>You're all set</h3>
+          <p>A clinic in your area will reach out within 24&ndash;48 hours to book your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hero-spacer"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How it works</div>
+      <h2>Three steps to your next appointment</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-label">Step 1</div>
+        <h3>Tell us what's going on</h3>
+        <p>Share a few quick details about your injury or pain and where you're located.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2</div>
+        <h3>We match you locally</h3>
+        <p>Your information goes straight to a chiropractic or physiotherapy clinic near you.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3</div>
+        <h3>The clinic reaches out</h3>
+        <p>Expect a call or text within 24&ndash;48 hours to get your appointment booked.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section conditions-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Commonly treated</div>
+      <h2>Whatever you're dealing with, there's likely a clinic for it</h2>
+    </div>
+    <div class="pill-grid">
+      <div class="pill">Sports injuries</div>
+      <div class="pill">Lower back pain</div>
+      <div class="pill">Neck &amp; shoulder pain</div>
+      <div class="pill">Post-workout recovery</div>
+      <div class="pill">Joint stiffness</div>
+      <div class="pill">Posture-related pain</div>
+      <div class="pill">Chronic pain management</div>
+      <div class="pill">Mobility &amp; flexibility</div>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <div class="wrap">
+    <h2>Ready to feel better?</h2>
+    <p>It takes less than a minute to get matched with a clinic near you.</p>
+    <button class="submit-btn" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth'}); document.getElementById('name').focus();">Request an Appointment</button>
+  </div>
+</section>
+
+<footer>
+  Vitalead &middot; Connecting patients with local recovery clinics in Metro Vancouver
+</footer>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var FORM_ID = '1FAIpQLSc1AU5rTnfG-RJE3k3EfUoDhieXHSkaLm_uT8qk5K8L2f2vGg';
+    var url = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
+
+    var data = new FormData();
+    data.append('entry.601332271',  document.getElementById('name').value);
+    data.append('entry.1445040317', document.getElementById('phone').value);
+    data.append('entry.1652790801', document.getElementById('email').value);
+    data.append('entry.984421483',  document.getElementById('area').value);
+    data.append('entry.468537394',  document.getElementById('issue').value);
+
+    fetch(url, { method: 'POST', mode: 'no-cors', body: data });
+
+    document.getElementById('form-view').style.display = 'none';
+    document.getElementById('thanks-view').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
